@@ -1,0 +1,34 @@
+#error {
+    height: 100%;
+
+    .container {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 500px;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .title {
+                font-weight: 800;
+                @include h2;
+                margin-bottom: 10px;
+            }
+
+            p {
+                margin-bottom: 40px;
+            }
+
+            a {
+            }
+        }
+    }
+}
