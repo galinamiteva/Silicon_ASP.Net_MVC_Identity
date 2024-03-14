@@ -1,11 +1,18 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Silicon_MVC.Views;
 
 namespace Silicon_MVC.Controllers;
 
 public class DefaultController : Controller
 {
     [Route("/")]
-    public IActionResult Home() => View();
+    public IActionResult Home()
+    {
+        var viewModel = new HomeIndexViewModel();
+
+        ViewData["Title"] = viewModel.Title;
+        return View(viewModel);
+    }
 
 
 
