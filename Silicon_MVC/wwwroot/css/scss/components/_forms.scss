@@ -55,7 +55,7 @@ form {
         }
 
         &.input-validation-error {
-            border: 1px solid $danger !important;
+            border: 0.063rem solid $danger !important;
             color: $danger;
 
             &::placeholder {

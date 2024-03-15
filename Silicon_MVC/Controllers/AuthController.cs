@@ -81,25 +81,53 @@ public class AuthController(UserManager<UserEntity> userManager, UserService use
 
     //public IActionResult SignIn() => View(new SignInViewModel());
 
-    public IActionResult SignIn()
+    //public IActionResult SignIn()
+    //{
+    //    if (_signInManager.IsSignedIn(User))
+    //        return RedirectToAction("Details", "Account");
+
+    //    return View(new SignInViewModel());
+    //}
+
+    public IActionResult SignIn(string returnUrl)
     {
         if (_signInManager.IsSignedIn(User))
             return RedirectToAction("Details", "Account");
+        ViewData["ReturnUrl"] = returnUrl ?? Url.Content("~/");
 
         return View(new SignInViewModel());
     }
 
 
-
     [Route("/signin")]
     [HttpPost]
-    public async Task<IActionResult> SignIn(SignInViewModel viewModel)
+    //public async Task<IActionResult> SignIn(SignInViewModel viewModel)
+    //{
+    //    if (ModelState.IsValid)
+    //    {
+    //        var result = await _signInManager.PasswordSignInAsync(viewModel.Form.Email, viewModel.Form.Password, viewModel.Form.RememberMe, false);
+    //        if (result.Succeeded)
+    //            return RedirectToAction("Details", "Account");
+    //    }
+
+    //    ModelState.AddModelError("Email", "Incorrect email or password");
+    //    viewModel.ErrorMessage = "Incorrect email or password";
+    //    return View(viewModel);
+
+
+    //}
+
+    public async Task<IActionResult> SignIn(SignInViewModel viewModel, string returnUrl)
     {
         if (ModelState.IsValid)
         {
             var result = await _signInManager.PasswordSignInAsync(viewModel.Form.Email, viewModel.Form.Password, viewModel.Form.RememberMe, false);
             if (result.Succeeded)
+            {
+                if(!string.IsNullOrEmpty(returnUrl)&&Url.IsLocalUrl(returnUrl))
                 return RedirectToAction("Details", "Account");
+            }
+               
         }
 
         ModelState.AddModelError("Email", "Incorrect email or password");
@@ -121,23 +149,7 @@ public class AuthController(UserManager<UserEntity> userManager, UserService use
     }
     #endregion
 
-    //[HttpGet]
-    //[Route("/account/details")]
-    //public async Task<IActionResult> Details()
-    //{
-    //    if(!_signInManager.IsSignedIn(User))
-    //        return RedirectToAction("SignIn", "Account");
-
-    //    var userEntity = await _userManager.GetUserAsync(User);
-
-    //    var viewModel = new AccoundDetailsViewModel()
-    //    {
-    //        User = userEntity
-    //    };
-
-    //    return View(viewModel);
-
-    //}
+    
 
 
 }
