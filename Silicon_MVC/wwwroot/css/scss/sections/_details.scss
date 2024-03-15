@@ -1,0 +1,167 @@
+#account-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include lg {
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        gap: 150px;
+        margin-bottom: 70px;
+        flex-direction: row;
+        justify-content: normal;
+        align-items: normal;
+    }
+
+
+    aside {
+        @include lg {
+            border-right: 1px solid $gray-300;
+            padding-right: 20px;
+        }
+
+        .profile {
+            margin: 20px;
+            text-align: center;
+
+            h5 {
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                @include text-m;
+            }
+        }
+
+        nav {
+            margin-top: 50px;
+            text-align: center;
+
+            a {
+                margin-top: 10px;
+                text-align: left;
+            }
+
+            .btn-theme-s {
+                text-align: center;
+                justify-content: flex-start;
+            }
+        }
+    }
+
+    .details {
+        margin-top: 50px;
+        width: 100%;
+
+        .basicInfoForm {
+            form {
+                padding: 1rem;
+
+                h5 {
+                    color: $theme;
+                }
+
+                .content {
+                    display: grid;
+                    gap: 1rem 2rem;
+                    grid-template-columns: 1fr;
+                    grid-template-areas: "firstname" "lastname" "email" "phone" "bio" "buttons";
+
+                    @include lg {
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "firstname lastname" "email phone" "bio bio" "buttons buttons";
+                    }
+
+                    #form-firstname {
+                        grid-area: firstname;
+                    }
+
+                    #form-lastname {
+                        grid-area: lastname;
+                    }
+
+                    #form-email {
+                        grid-area: email;
+                    }
+
+                    #form-phone {
+                        grid-area: phone;
+                    }
+
+                    #form-bio {
+                        grid-area: bio;
+
+
+                        span {
+                            color: $gray-500;
+                            font-weight: 400;
+                        }
+                    }
+
+                    .form-buttons {
+                        grid-area: buttons;
+                        margin: 20px 0;
+                        display: flex;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+
+
+        .addressInfoForm {
+            margin-top: 30px;
+
+            form {
+                padding: 1rem;
+
+                h5 {
+                    color: $theme;
+                }
+
+                .content {
+                    display: grid;
+                    gap: 1rem 2rem;
+                    grid-template-columns: 1fr;
+                    grid-template-areas: "addressline_1" "addressline_2" "postalcode" "city" "buttons";
+
+                    @include lg {
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "addressline_1 addressline_1" "addressline_2 addressline_2" "postalcode city" "buttons buttons";
+                    }
+
+                    #form-addressline-1 {
+                        grid-area: addressline_1;
+                    }
+
+                    #form-addressline-2 {
+                        grid-area: addressline_2;
+
+
+                        span {
+                            color: $gray-500;
+                            font-weight: 400;
+                        }
+                    }
+
+                    #form-postalcode {
+                        grid-area: postalcode;
+                    }
+
+                    #form-city {
+                        grid-area: city;
+                    }
+
+                    .form-buttons {
+                        grid-area: buttons;
+                        margin: 20px 0;
+                        display: flex;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

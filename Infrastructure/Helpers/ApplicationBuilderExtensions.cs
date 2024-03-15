@@ -1,15 +1,15 @@
 ﻿
 
-using Microsoft.AspNetCore.Builder;
-using System.Runtime.CompilerServices;
+//using Microsoft.AspNetCore.Builder;
+//using System.Runtime.CompilerServices;
 
-namespace Infrastructure.Helpers;
+//namespace Infrastructure.Helpers;
 
-public static class ApplicationBuilderExtensions
-{
+//public static class ApplicationBuilderExtensions
+//{
 
-    public static IApplicationBuilder UseUserSessionValidation (this IApplicationBuilder builder)
-    {
-        return builder.UseMiddleware<UserSessionValidationMiddleware> ();
-    }
-}
+//    public static IApplicationBuilder UseUserSessionValidation (this IApplicationBuilder builder)
+//    {
+//        return builder.UseMiddleware<UserSessionValidationMiddleware> ();
+//    }
+//}

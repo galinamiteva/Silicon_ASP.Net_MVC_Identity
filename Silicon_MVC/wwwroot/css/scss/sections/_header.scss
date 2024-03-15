@@ -80,4 +80,30 @@ header {
             }
         }
     }
+
+    #mobil-menu {
+        display: none;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+        background-color: #fff;
+
+
+        .account-buttons {
+            .btn-gray {
+                margin-bottom: 15px;
+            }
+        }
+    }
+
+    #mobil-menu nav {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    #mobil-menu[aria-expanded="true"] {
+        display: flex;
+    }
 }

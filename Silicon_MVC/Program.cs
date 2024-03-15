@@ -1,6 +1,8 @@
 using Infrastructure.Contexts;
 using Infrastructure.Entities;
 using Infrastructure.Helpers;
+using Infrastructure.Repositories;
+using Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,18 +23,31 @@ builder.Services.AddDefaultIdentity<UserEntity>(x =>
     x.Password.RequiredLength = 8;
 }).AddEntityFrameworkStores<DataContext>();
 
-builder.Services.ConfigureApplicationCookie(x =>
-{
-    x.Cookie.HttpOnly = true;
-    x.LoginPath = "/signin";
-    x.LogoutPath = "/signout";
-    x.AccessDeniedPath = "/denied";
+builder.Services.AddScoped<AddressRepository>();
+builder.Services.AddScoped<UserRepository>();
+builder.Services.AddScoped<FeatureItemRepository>();
+builder.Services.AddScoped<FeatureRepository>();
 
-    x.Cookie.HttpOnly= true;
-    x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
-    x.ExpireTimeSpan = TimeSpan.FromMinutes(60);
-    x.SlidingExpiration=true;
-});
+builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<FeatureService>();
+builder.Services.AddScoped<AddressManager>();
+
+
+
+
+
+//builder.Services.ConfigureApplicationCookie(x =>
+//{
+//    x.Cookie.HttpOnly = true;
+//    x.LoginPath = "/signin";
+//    x.LogoutPath = "/signout";
+//    x.AccessDeniedPath = "/denied";
+
+//    x.Cookie.HttpOnly= true;
+//    x.Cookie.SecurePolicy = CookieSecurePolicy.Always;
+//    x.ExpireTimeSpan = TimeSpan.FromMinutes(60);
+//    x.SlidingExpiration=true;
+//});
 
 
 var app = builder.Build();
@@ -43,9 +58,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-app.UseAuthentication();
-app.UseUserSessionValidation();
 app.UseAuthorization();
+//app.UseUserSessionValidation();
+
 
 app.MapControllerRoute(
     name: "default",

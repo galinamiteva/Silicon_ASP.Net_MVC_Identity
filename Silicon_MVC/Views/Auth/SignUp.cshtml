@@ -6,12 +6,12 @@
 
 <section id="signup">
     <div class="container">
-        @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+       @*  @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
         {
             <div class="alert">
                 @ViewData["ErrorMessage"]
             </div>
-        }
+        } *@
 
         <form method="post" asp-controller="Auth" asp-action="SignUp" novalidate>
             <h1>Create Account</h1>
@@ -66,4 +66,5 @@
 
 </section>
 
-@await Html.PartialAsync("~/Views/Shared/_ValidationScriptPartial.cshtml")  
+@* @await Html.PartialAsync("~/Views/Shared/_ValidationScriptPartial.cshtml")  *@ 
+<script defer src="~/js/validation.js"></script>
