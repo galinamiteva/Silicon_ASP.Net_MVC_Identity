@@ -38,7 +38,7 @@ public class SignUpModel
     [Compare("Password", ErrorMessage = "The confirmation password do not match.")]
     public string ConfirmPassword { get; set; } = null!;
 
-    [Display(Name = "I agree to the Terms and Conditions", Order = 5)]
-    [CheckBoxRequired(ErrorMessage = "You must agree to the terms and conditions")]
+    [Display(Name = "Terms & Conditions ", Order = 5)]
+    [CheckBoxRequired(ErrorMessage = "Terms & Conditions is required field ")]
     public bool TermsAndConditions { get; set; } = false;
 }

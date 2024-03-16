@@ -9,13 +9,6 @@
 <div class="container">
     <section id="account-details">
 
-        @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
-        {
-            <div class="alert">
-                @ViewData["ErrorMessage"]
-            </div>
-        }
-
         <aside>
             <div class=" profile">
 
@@ -25,13 +18,32 @@
             </div>
 
             <nav>
-                <a class="btn-theme-s" asp-controller="Account" asp-action="Details">Account Details</a>
-                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut">Sign Out</a>
+                <a class="btn-theme" asp-controller="Account" asp-action="Details"><i class="fa-solid fa-gear"></i>Account Details</a>
+                <a class="btn-transparent" asp-controller="Account" asp-action="Security"><i class="fa-solid fa-lock"></i></i>Security</a>
+                <a class="btn-transparent" asp-controller="Courses" asp-action="SavedCourses"><i class="fa-regular fa-bookmark"></i>Saved Courses</a>
+                <a class="btn-transparent" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-right-from-bracket"></i>Sign Out</a>
             </nav>
         </aside>
 
+       
+
+       
+
         <div class="details">
             <section class="basicInfoForm">
+
+                @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
+                {
+                    <div class="alert-danger">
+                        @ViewData["ErrorMessage"]
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(ViewData["SuccessMessage"]?.ToString()))
+                {
+                    <span class="alert-success">
+                        @ViewData["SuccessMessage"]
+                    </span>
+                }
                 <form method="post" asp-controller="Account" asp-action="Details" novalidate>
                     <h2>Account Details</h2>
                     <h5>Basic Info</h5>
@@ -39,20 +51,46 @@
                     <div class="content">
                         <div id="form-firstname" class="input-group">
                             <label asp-for="BasicInfoForm!.FirstName"></label>
-                            <span asp-validation-for="BasicInfoForm!.FirstName"></span>
-                            <input asp-for="BasicInfoForm!.FirstName" />
+                            @if(Model.ProfileInfo.AccountExternal)
+                            {
+                                <input asp-for="BasicInfoForm!.FirstName" disabled />
+                                <input asp-for="BasicInfoForm!.FirstName" hidden />
+                            }
+                            else
+                            {
+                                <span asp-validation-for="BasicInfoForm!.FirstName"></span>
+                                <input asp-for="BasicInfoForm!.FirstName" />
+                            }
+
                         </div>
 
                         <div id="form-lastname" class="input-group">
                             <label asp-for="BasicInfoForm!.LastName"></label>
-                            <span asp-validation-for="BasicInfoForm!.LastName"></span>
-                            <input asp-for="BasicInfoForm!.LastName" />
+                            @if (Model.ProfileInfo.AccountExternal)
+                            {
+                                <input asp-for="BasicInfoForm!.LastName" disabled />
+                                <input asp-for="BasicInfoForm!.LastName" hidden />
+                            }
+                            else
+                            {
+                                <span asp-validation-for="BasicInfoForm!.LastName"></span>
+                                <input asp-for="BasicInfoForm!.LastName" />
+                            }
+                            
                         </div>
 
                         <div id="form-email" class="input-group">
                             <label asp-for="BasicInfoForm!.Email"></label>
-                            <span asp-validation-for="BasicInfoForm!.Email"></span>
-                            <input asp-for="BasicInfoForm!.Email" />
+                            @if (Model.ProfileInfo.AccountExternal)
+                            {
+                                <input asp-for="BasicInfoForm!.Email" disabled />
+                                <input asp-for="BasicInfoForm!.Email" hidden />
+                            }
+                            else
+                            {
+                                <span asp-validation-for="BasicInfoForm!.Email"></span>
+                                <input asp-for="BasicInfoForm!.Email" />
+                            }
                         </div>
 
                         <div id="form-phone" class="input-group">

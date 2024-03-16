@@ -1,23 +1,23 @@
 #account-details {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 
     @include lg {
+        flex-direction: row;
+        justify-content: normal;
+        align-items: normal;
         display: grid;
         grid-template-columns: 2fr 5fr;
         gap: 150px;
         margin-bottom: 70px;
-        flex-direction: row;
-        justify-content: normal;
-        align-items: normal;
     }
 
 
     aside {
         @include lg {
-            border-right: 1px solid $gray-300;
+            border-right: 0.063rem solid $gray-300;
             padding-right: 20px;
         }
 
@@ -36,17 +36,35 @@
         }
 
         nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
             margin-top: 50px;
             text-align: center;
 
             a {
+                display: block;
                 margin-top: 10px;
-                text-align: left;
+                text-align: center;
+
+                i {
+                    color: $gray-700;
+                    padding-right: 10px;
+
+                    &.fa-solid.fa-gear {
+                        color: $white;
+                    }
+                }
             }
 
             .btn-theme-s {
-                text-align: center;
-                justify-content: flex-start;
+                display: block;
+                text-align: left;
+
+                i {
+                    color: $white;
+                    padding-right: 10px;
+                }
             }
         }
     }

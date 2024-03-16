@@ -1,8 +1,17 @@
-.alert{
-    background:$danger;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:15px;
-    border-radius:8px;
+.alert-danger {
+    background: $danger;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.alert-success {
+    background: $success;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-radius: 8px;
 }
