@@ -24,6 +24,8 @@ public class DefaultController : Controller
     [Route("/dehied")]
     public IActionResult AccessDenied(int statusCode) => View();
 
+
+
     public IActionResult DeleteConfirmation()
     {
         return View();

@@ -1,0 +1,44 @@
+﻿@model CoursesIndexViewModel
+
+
+<section id="courses">
+    <div class="container">
+        <div class="breadcrumbs">
+
+
+
+            <a class="home-and-contact" asp-controller="Default" asp-action="Home">
+
+                <i class="fa-solid fa-house"></i>
+                <p class="home">Home</p>
+            </a>
+
+            <i class="fa-solid fa-angles-right"></i>
+            <p class="current-page">Courses</p>
+
+
+        </div>
+        <div class="filters">
+            <h1>Courses</h1>
+            <div class="search">
+                <select name="categories" id="categories">
+                    <option value="developers">All Categories</option>
+                    <option value="developer">developer</option>
+                    <option value="frontend">frontend</option>
+                    <option value="fulstack">fulstack</option>
+                    <option value="python">python</option>
+                    <option value="ultimate">ultimate</option>
+                </select>
+                <div class="input-container">
+                    <input type="text" placeholder="Search courses" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+
+            </div>
+        </div>
+        @await Html.PartialAsync("~/Views/Shared/Sections/_CoursePartial.cshtml", Model.Course)
+        @await Html.PartialAsync("~/Views/Shared/Sections/_GetStartedPartial.cshtml", Model.Started)
+    </div>
+
+</section>
+

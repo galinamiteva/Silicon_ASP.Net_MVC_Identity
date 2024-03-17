@@ -1,0 +1,194 @@
+.contact {
+    background-color: $gray-100;
+
+    .container {
+        position: relative;
+
+        .content {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+            gap: 1rem;
+
+            .home-and-contact {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 0.5rem;
+
+                .fa-house {
+                    color: $gray-600;
+                }
+
+                .home {
+                    color: $gray-600;
+                    margin-bottom: 0;
+                }
+
+                &:hover {
+                    .home,
+                    .fa-house {
+                        color: $black;
+                    }
+
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+            }
+
+            .fa-angles-right {
+                color: $gray-600;
+            }
+
+            .contact {
+                color: $theme;
+                margin-bottom: 0;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-top: 2rem;
+
+            @include xl {
+                max-width: 30%;
+            }
+
+            h1 {
+                margin-bottom: 2rem;
+            }
+
+            .email-us {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 2rem;
+                margin-bottom: 1rem;
+
+                .round {
+                    background-color: $white;
+                    color: $theme;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 1rem;
+                }
+
+                .email-content {
+                    a {
+                        .fa-arrow-right-long {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .careers {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                gap: 2rem;
+                margin-bottom: 1rem;
+
+                .round {
+                    background-color: $white;
+                    color: $theme;
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-bottom: 1rem;
+                }
+
+                .text {
+                    a {
+                        .fa-arrow-right-long {
+                            margin-left: 1rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        .get-contact {
+            position: relative;
+
+            @include xl {
+                position: absolute;
+                right: 0;
+                top: 0;
+                background-color: $white;
+                padding: 2rem;
+                width: 40%;
+                height: 800px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+            }
+
+
+
+            h2 {
+                margin-left: 1rem;
+            }
+
+            .fa-angle-down {
+                position: absolute;
+                right: 4rem;
+                top: 22rem;
+
+                @include xl {
+                    top: 24rem;
+                }
+            }
+
+            .contact-form {
+                padding: 1rem;
+
+                .form-group {
+                    label {
+                        font-weight: 600;
+                        color: $gray-900;
+                        margin-bottom: 0,5rem;
+                        margin-top: 2rem;
+
+                        span {
+                            color: $gray-400;
+                        }
+                    }
+
+                    #message {
+                        height: 250px;
+                    }
+
+                    .btn-theme {
+                        margin-top: 2rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .map {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: -60px;
+
+
+
+        iframe {
+            width: 100vw;
+
+            @media (min-width: 992px) {
+                margin-top: 120px;
+            }
+        }
+    }
+}
