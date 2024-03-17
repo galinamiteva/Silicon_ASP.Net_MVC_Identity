@@ -94,18 +94,24 @@ header {
             .btn-gray {
                 margin-bottom: 15px;
                 margin-top: 15px;
+
+                /*a {
+                    margin-bottom: 50px;
+                }*/
             }
 
             .btn-theme {
-                margin-bottom: 15px;
+                margin-bottom: 50px;
+                margin-top: 50px;
             }
         }
     }
 
     #mobileMenu nav {
+        margin-top:50px;
         display: flex;
         flex-direction: column;
-        gap: 15px;
+        gap: 20px;
         align-items: center;
     }
 

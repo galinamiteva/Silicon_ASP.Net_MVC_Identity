@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Infrastructure.Models;
 
-public class ApplicationUser
+public class ApplicationUser: IdentityUser
 {
     [Required]
     [Display(Name = "First Name")]

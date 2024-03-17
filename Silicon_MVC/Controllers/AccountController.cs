@@ -1,5 +1,6 @@
 ﻿using Infrastructure.Entities;
 using Infrastructure.Services;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -174,4 +175,121 @@ public class AccountController(UserManager<UserEntity> userManager, AddressManag
         return new AddressInfoFormViewModel();
 
     }
+
+    #region Security
+
+    [HttpGet]
+    [Route("/account/security")]
+    public async Task<IActionResult> Security()
+    {
+        var viewModel = new AccountSecurityViewModel
+        {
+            PassForm = await PopulateSecurityPassFormAsync()
+        };
+
+        viewModel.BasicInfoForm ??= await PopulateBasicInfoAsync();
+        viewModel.ProfileInfo ??= await PopulateProfileInfoAsync();
+        return View(viewModel);
+    }
+
+    [HttpPost]
+    [Route("/account/security")]
+    public async Task<IActionResult> Security(AccountSecurityViewModel viewModel)
+    {
+        if (viewModel.PassForm != null)
+        {
+            if (viewModel.PassForm.CurrentPassword != null &&
+                viewModel.PassForm.NewPassword != null &&
+                viewModel.PassForm.ConfirmNewPassword != null)
+            {
+                if (viewModel.PassForm.NewPassword == viewModel.PassForm.ConfirmNewPassword)
+                {
+                    var user = await _userManager.GetUserAsync(User);
+
+                    if (user != null)
+                    {
+                        var result = await _userManager.ChangePasswordAsync(user, viewModel.PassForm.CurrentPassword, viewModel.PassForm.NewPassword);
+
+                        if (!result.Succeeded)
+                        {
+                            ModelState.AddModelError("IncorrectValues", "Failed to update user information");
+                            ViewData["ErrorMessage"] = "Failed to update password";
+                        }
+                        else
+                        {
+                            ViewData["SuccessMessage"] = "Password updated successfully!";
+                        }
+                    }
+                }
+                else
+                {
+                    ModelState.AddModelError("PasswordMismatch", "New password and confirm password do not match.");
+                    ViewData["ErrorMessage"] = "New password and confirm password do not match.";
+                }
+            }
+        }
+
+        viewModel.BasicInfoForm = await PopulateBasicInfoAsync();
+        viewModel.ProfileInfo = await PopulateProfileInfoAsync();
+        viewModel.PassForm = await PopulateSecurityPassFormAsync();
+
+        return View(viewModel);
+    }
+
+
+    private async Task<PassFormViewModel> PopulateSecurityPassFormAsync()
+    {
+        var user = await _userManager.GetUserAsync(User);
+        
+        if (user != null)
+        {
+            return new PassFormViewModel()
+            {
+                UserId = user!.Id,
+                ConfirmNewPassword = user.PasswordHash!,
+                CurrentPassword = user.PasswordHash!,
+                NewPassword = user.PasswordHash!,
+            };
+        }
+       
+        return null!;
+
+    }
+
+
+
+
+
+
+    [HttpPost]
+    [Route("/account/delete")]
+    public async Task<IActionResult> DeleteAccount()
+    {
+        var user = await _userManager.GetUserAsync(User);
+
+        if (user != null)
+        {
+            var result = await _userManager.DeleteAsync(user);
+
+            if (result.Succeeded)
+            {
+                await HttpContext.SignOutAsync();
+                ViewData["SuccessMessage"] = "Account deleted successfully!";
+                await Task.Delay(1000);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewData["ErrorMessage"] = "Failed to delete the account";
+            }
+        }
+        else
+        {
+            ViewData["ErrorMessage"] = "User not found";
+        }
+
+        return View("AccountDeletedConfirmation");
+    }
+
+    #endregion
 }

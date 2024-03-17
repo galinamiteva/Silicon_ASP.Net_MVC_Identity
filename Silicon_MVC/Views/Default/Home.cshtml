@@ -20,22 +20,22 @@
 
 
 
-
+<section id="manage">
     @await Html.PartialAsync("~/Views/Shared/Sections/_ManagePartial.cshtml")
+</section>
 
-
-
+<section id="download">
     @await Html.PartialAsync("~/Views/Shared/Sections/_DownloadPartial.cshtml")
-
+</section>
 
 
 <section id="integrate">
     @await Html.PartialAsync("~/Views/Shared/Sections/_IntegratePartial.cshtml")
 </section>
 
-
+<section id="want">
     @await Html.PartialAsync("~/Views/Shared/Sections/_WantPartial.cshtml", new Silicon_MVC.ViewModels.WantViewModel())
-
+</section>
 
 
 

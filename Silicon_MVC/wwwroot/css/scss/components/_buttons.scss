@@ -131,6 +131,26 @@
     }
 }
 
+.btn-delete {
+    @include button;
+    background: $danger;
+    color: $white;
+    border: none;
+    margin-top: 1rem;
+
+    &:hover {
+        text-decoration: none;
+        background: $danger;
+        opacity: 0.8;
+        color: $white;
+    }
+}
+
+
+
+
+
+
 .btn-social {
     @include text-xl;
     display: flex;

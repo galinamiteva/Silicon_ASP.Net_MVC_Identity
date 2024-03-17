@@ -1,0 +1,131 @@
+#security {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include lg {
+        display: grid;
+        grid-template-columns: 2fr 5fr;
+        gap: 150px;
+        margin-bottom: 70px;
+        flex-direction: row;
+        justify-content: normal;
+        align-items: normal;
+    }
+
+
+    aside {
+        @include lg {
+            border-right: 1px solid $gray-300;
+            padding-right: 20px;
+        }
+
+        .profile-info {
+            margin: 20px;
+            text-align: center;
+
+            h5 {
+                margin-top: 15px;
+                margin-bottom: 10px;
+            }
+
+            p {
+                @include text-m;
+            }
+        }
+
+        nav {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 50px;
+            text-align: center;
+
+            a {
+                display: block;
+                margin-top: 10px;
+                text-align: left;
+
+                i {
+                    color: $gray-700;
+                    padding-right: 10px;
+                }
+            }
+
+            .btn-theme-s {
+                display: block;
+                text-align: left;
+
+                i {
+                    color: $white;
+                    padding-right: 10px;
+                }
+            }
+        }
+    }
+
+    .security {
+        margin-top: 50px;
+        width: 100%;
+
+        .security-info {
+            form {
+                padding: 1rem;
+
+                h5 {
+                    color: $theme;
+                }
+
+                .content {
+                    display: grid;
+                    gap: 1rem 2rem;
+                    grid-template-columns: 1fr;
+                    grid-template-areas: "current-password" "new-password" "confirm-new-password" "buttons";
+
+                    @include lg {
+                        grid-template-columns: 1fr 1fr;
+                        grid-template-areas: "current-password current-password" "new-password confirm-new-password" "buttons buttons";
+                    }
+
+                    #current-password {
+                        grid-area: current-password;
+                    }
+
+                    #new-password {
+                        grid-area: new-password;
+                    }
+
+                    #confirm-new-passwordl {
+                        grid-area: confirm-new-password;
+                    }
+
+                    .form-buttons {
+                        grid-area: buttons;
+                        margin: 20px 0;
+                        display: flex;
+                        gap: 20px;
+                    }
+                }
+            }
+        }
+
+
+        .delete-account {
+            margin-top: 30px;
+
+            form {
+                padding: 1rem;
+
+                h5 {
+                    color: $theme;
+                }
+
+                .content {
+                    display: grid;
+                    gap: 1rem;
+                }
+            }
+        }
+    }
+}
