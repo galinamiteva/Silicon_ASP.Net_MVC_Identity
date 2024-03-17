@@ -27,14 +27,14 @@
             <section class="security-info">
                 @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
                 {
-                    <span class="alert alert-danger">
+                    <span class="alert-danger">
                         @ViewData["ErrorMessage"]
                     </span>
                 }
 
                 @if (!string.IsNullOrEmpty(ViewData["SuccessMessage"]?.ToString()))
                 {
-                    <span class="alert alert-success">
+                    <span class="alert-success">
                         @ViewData["SuccessMessage"]
                     </span>
                 }
