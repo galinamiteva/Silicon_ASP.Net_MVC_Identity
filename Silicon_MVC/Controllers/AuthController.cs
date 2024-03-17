@@ -10,7 +10,7 @@ namespace Silicon_MVC.Controllers;
 
 public class AuthController(UserManager<UserEntity> userManager, UserService userService, SignInManager<UserEntity> signInManager) : Controller
 {
-    private readonly UserService _userService = userService;
+    
     private readonly UserManager<UserEntity> _userManager = userManager;
     private readonly SignInManager<UserEntity> _signInManager = signInManager;
 
@@ -25,28 +25,35 @@ public class AuthController(UserManager<UserEntity> userManager, UserService use
     [Route("/signup")]
     [HttpGet]
 
-    //public IActionResult SignUp()
-    //{
-    //    if (_signInManager.IsSignedIn(User))
-    //        return RedirectToAction("Details", "Account");
-    //    return View(new SignUpViewModel());
-    //}
     public IActionResult SignUp()
     {
-        var viewModel = new SignUpViewModel();
-        return View(viewModel);
+        
+
+        if (_signInManager.IsSignedIn(User))
+
+            return RedirectToAction("Details", "Account");
+
+        return View(new SignUpViewModel());
     }
+    //public IActionResult SignUp()
+    //{
+    //    var viewModel = new SignUpViewModel();
+    //    return View(viewModel);
+    //}
 
     [HttpPost]
     [Route("/signup")]
     public async Task<IActionResult> SignUp(SignUpViewModel viewModel)
     {
+        var standartRole = "User";
+
         if (ModelState.IsValid)
         {
             
-            //var exist = await _userManager.Users.AnyAsync(x => x.Email == viewModel.Form.Email);
-            //if (exist)
-
+            if (!await _userManager.Users.AnyAsync())
+            {
+                standartRole = "SuperAdmin";
+            }
 
             var exist = await _userManager.FindByEmailAsync(viewModel.Form.Email);
             if (exist != null)
@@ -68,8 +75,8 @@ public class AuthController(UserManager<UserEntity> userManager, UserService use
             var result = await _userManager.CreateAsync(userEntity, viewModel.Form.Password);
             if (result.Succeeded)
             {
-               
-                return RedirectToAction("signin");
+                await _userManager.AddToRoleAsync(userEntity, standartRole);
+                return RedirectToAction("SignIn", "Auth");
             }
         }
 

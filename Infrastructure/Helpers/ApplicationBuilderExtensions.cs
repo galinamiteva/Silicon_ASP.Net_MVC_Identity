@@ -5,11 +5,11 @@
 
 //namespace Infrastructure.Helpers;
 
-//public static class ApplicationBuilderExtensions
+//public static class ApplicationBuilderExtensionss
 //{
 
-//    public static IApplicationBuilder UseUserSessionValidation (this IApplicationBuilder builder)
+//    public static IApplicationBuilder UseUserSessionValidation(this IApplicationBuilder builder)
 //    {
-//        return builder.UseMiddleware<UserSessionValidationMiddleware> ();
+//        return builder.UseMiddleware<UserSessionValidationMiddleware>();
 //    }
 //}

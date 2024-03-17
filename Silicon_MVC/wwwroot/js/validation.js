@@ -36,7 +36,7 @@ const emailValidator = (element) => {
     formErrorHandler(element, regEx.test(element.value))
 }
 
-const passwordValidator = (element) => {
+const passValidator = (element) => {
     if (element.dataset.valEqualToOther !== undefined) {
         let password = document.getElementsByName(element.dataset.valEqualtoOther.replace('*', 'Form'))[0].value
 
@@ -51,7 +51,7 @@ const passwordValidator = (element) => {
     }
 }
 
-const phoneNumberValidator = (element) => {
+const phoneValidator = (element) => {
     const regEx = /^\d{10}$/
     formErrorHandler(element, regEx.test(element.value))
 }
@@ -87,10 +87,10 @@ inputs.forEach(input => {
                         emailValidator(e.target)
                         break
                     case 'password':
-                        passwordValidator(e.target)
+                        passValidator(e.target)
                         break
                     case 'tel':
-                        phoneNumberValidator(e.target)
+                        phoneValidator(e.target)
                         break
                 }
             })

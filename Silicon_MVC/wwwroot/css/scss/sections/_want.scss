@@ -1,0 +1,143 @@
+.want {
+    background-color: $gray-100;
+    padding: 80px 0;
+
+    .dark-mode & {
+        background-color: $gray-900;
+        color: $white;
+    }
+
+
+    .container {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        flex-direction: column;
+
+        .title {
+            display: flex;
+            justify-content: start;
+            align-items: center;
+
+
+            @include lg {
+                
+                justify-content: flex-start;
+            }
+
+            h1 {
+                @include h4;
+
+                @include lg {
+                    @include h1;
+                }
+            }
+
+            img {
+                display: none;
+
+                @include lg {
+                    display: block;
+                }
+            }
+        }
+
+        .contentEmail {
+
+
+            .contentSign {
+
+                @include lg {
+                    display: flex;
+                    justify-content: start;
+                    align-items: center;
+                }
+
+                .column {
+                    margin-left: 0px;
+
+                    @include lg {
+                        margin-left: 50px;
+                    }
+
+                    .input-group {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        gap: 1rem;
+                    }
+                }
+            }
+        }
+
+        .contentEmail {
+            .email {
+                margin-top: 40px;
+                margin-bottom: 10px;
+
+
+                @include lg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-left: 20px;
+                }
+
+                .input-group {
+                    display: block;
+                    width: 100%;
+                    /*                    border: 0px;
+                    border-radius: 5px;
+                    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"><path d="M22 5H2C0.9 5 0 5.9 0 7v10c0 1.1 0.9 2 2 2h20c1.1 0 2-0.9 2-2V7c0-1.1-0.9-2-2-2zM12 15.5L2 9V7l10 6.5L22 7v2L12 15.5z"/></svg>');
+                    background-repeat: no-repeat;
+                    background-size: 20px 20px;
+                    background-position: 5px center;*/
+
+
+                    @include lg {
+                        display: block;
+                        /*    width: 650px;*/
+                        padding: 13px;
+                        padding-left: 30px;
+                        border: 0px;
+                        border-radius: 5px;
+                    }
+
+                    input {
+                        width: 100%;
+                    }
+
+                    span {
+                        margin-top: -25px;
+
+                        @include lg {
+                            margin-top: -15px;
+                        }
+                    }
+                }
+
+                .btn-theme {
+                    margin: 20px 0;
+
+                    @include lg {
+                        margin: 0px;
+                        margin-left: 20px;
+                        /*margin-top: 23px;*/
+                        padding-left: 50px;
+                        padding-right: 50px;
+                        padding-top: 15px;
+                        padding-bottom: 15px;
+                    }
+                }
+            }
+
+            p {
+                margin-left: 0px;
+
+                @include lg {
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+}

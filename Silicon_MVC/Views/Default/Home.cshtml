@@ -1,8 +1,39 @@
 ﻿@model HomeIndexViewModel
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Index";   
+    
 }
 
 @await Html.PartialAsync("~/Views/Shared/Sections/_ShowcasePartial.cshtml", Model.Showcase)
+
+
+
+    @await Html.PartialAsync("~/Views/Shared/Sections/_FeaturePartial.cshtml")
+
+
+
+
+    @await Html.PartialAsync("~/Views/Shared/Sections/_SwitchDarkLight.cshtml")
+
+
+
+
+    @await Html.PartialAsync("~/Views/Shared/Sections/_ManagePartial.cshtml")
+
+
+
+    @await Html.PartialAsync("~/Views/Shared/Sections/_DownloadPartial.cshtml")
+
+
+
+<section id="integrate">
+    @await Html.PartialAsync("~/Views/Shared/Sections/_IntegratePartial.cshtml")
+</section>
+
+
+    @await Html.PartialAsync("~/Views/Shared/Sections/_WantPartial.cshtml", new Silicon_MVC.ViewModels.WantViewModel())
+
+
+
 

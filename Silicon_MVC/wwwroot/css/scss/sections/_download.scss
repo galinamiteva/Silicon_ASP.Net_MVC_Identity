@@ -1,0 +1,91 @@
+.download {
+    background-color: $gray-100;
+    padding: 80px 0;
+
+    .dark-mode & {
+        background-color: $gray-900;
+        color: $white;
+    }
+
+    .container {
+
+
+        @include lg {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 200px;
+        }
+
+        .phones {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+
+
+            .iPhoneProinside {
+                display: none;
+
+                @include lg {
+                    display: block;
+                    position: absolute;
+                    top: -50px;
+                    left: 170px;
+                    z-index: 2;
+                }
+            }
+        }
+
+        .content-info {
+
+
+            .appstore {
+                padding: 20px;
+                margin-top: 25px;
+
+                @include lg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    padding: 0px;
+                }
+
+                .stars {
+                    color: $warning;
+                    margin-bottom: 10px;
+                    margin-top: -10px;
+                }
+
+                .icon {
+                    margin-bottom: 20px;
+                    margin-left: 50px;
+                }
+            }
+
+            .googleplay {
+                padding: 20px;
+                margin-top: 15px;
+
+                @include lg {
+                    display: flex;
+                    justify-content: center;
+                    align-items: flex-end;
+                    padding: 0px;
+                }
+
+                .stars {
+                    color: $warning;
+                    margin-bottom: 10px;
+                    margin-top: -10px;
+                }
+
+                .icon {
+                    margin-bottom: 20px;
+                    margin-left: 50px;
+                }
+            }
+        }
+    }
+}

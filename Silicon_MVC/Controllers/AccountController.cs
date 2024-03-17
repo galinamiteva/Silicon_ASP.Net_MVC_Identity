@@ -19,6 +19,7 @@ public class AccountController(UserManager<UserEntity> userManager, AddressManag
     [Route("/account/details")]
     public async Task<IActionResult> Details()
     {
+        var claims = HttpContext.User.Identities.FirstOrDefault();
         var viewModel = new AccountDetailsViewModel
         {
             ProfileInfo = await PopulateProfileInfoAsync()

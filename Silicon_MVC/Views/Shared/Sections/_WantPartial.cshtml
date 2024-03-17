@@ -1,0 +1,83 @@
+﻿
+@model WantViewModel
+
+<div class="want">
+    <div class="container">
+       
+        <div class="title">
+            <h1>Don't Want to Miss Anything?</h1>
+            <img src="/images/Group.svg" alt="symbol of arrow">
+        </div>
+
+        <div class="contentEmail">
+            <form method="post" asp-controller="Want" asp-action="Want" novalidate>
+                <div class="contentSign">
+                    <div class="column">
+                        <h6>Sign up for <br> Newsletters</h6>
+                    </div>
+                        <div class="column">
+                        <div class="input-group">
+                                <input asp-for="Form.Checkbox1" />
+                                <label asp-for="Form.Checkbox1">Daily Roundup</label>
+                            </div>
+                                <span asp-validation-for="Form.Checkbox1"> </span>
+
+                            <div class="input-group">
+                                <input asp-for="Form.Checkbox2" />
+                                <label asp-for="Form.Checkbox2">Weekly Roundup</label>
+                            </div>
+                                <span asp-validation-for="Form.Checkbox2"> </span>
+                        </div>
+                        
+                        <div class="column">
+                        <div class="input-group">
+                                <input asp-for="Form.Checkbox3" />
+                                <label asp-for="Form.Checkbox3">Monthly Roundup</label>
+                            </div>
+                                <span asp-validation-for="Form.Checkbox3"> </span>
+                            <div class="input-group">
+                                <input asp-for="Form.Checkbox4" />
+                                <label asp-for="Form.Checkbox4">Special Offers</label>
+                            </div>
+                                <span asp-validation-for="Form.Checkbox4"> </span>
+                        </div>
+
+                        <div class="column">
+                            <div class="input-group">
+                                <input asp-for="Form.Checkbox5" />
+                                <label asp-for="Form.Checkbox5">New Products</label>
+                            </div class="input-group">
+                                <span asp-validation-for="Form.Checkbox5"> </span>
+                            <div class="input-group">
+                                <input asp-for="Form.Checkbox6" />
+                                <label asp-for="Form.Checkbox6">Events</label>
+                            </div>
+                                <span asp-validation-for="Form.Checkbox6"> </span>
+
+
+                        </div>
+                </div>
+
+                <div class="contentEmail">
+                    <div class="email">
+                        <div id="form-email" class="input-group">
+                            
+                            <span asp-validation-for="Form.Email"> </span>
+                            <input asp-for="Form.Email"/>
+                        </div>
+                        <button id="form-submit" type="submit" class="btn-theme">@Model.Title </button>
+                    </div>
+                    
+                    <div class="terms">
+                        <p> <a href="#">*</a> Yes, I agree to the <a href="#">terms</a> and <a href="#">privacy policy</a>.</p>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+
+    </div>
+</div>
+@await Html.PartialAsync("~/Views/Shared/_ValidationScriptPartial.cshtml") 

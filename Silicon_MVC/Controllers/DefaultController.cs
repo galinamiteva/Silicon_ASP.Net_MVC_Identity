@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Silicon_MVC.ViewModels;
 using Silicon_MVC.Views;
 
 namespace Silicon_MVC.Controllers;
@@ -22,4 +23,11 @@ public class DefaultController : Controller
 
     [Route("/dehied")]
     public IActionResult AccessDenied(int statusCode) => View();
+
+    public IActionResult DeleteConfirmation()
+    {
+        return View();
+    }
+
+    
 }
