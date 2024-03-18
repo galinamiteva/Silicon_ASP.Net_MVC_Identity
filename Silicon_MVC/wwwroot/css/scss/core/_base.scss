@@ -84,3 +84,12 @@ h6, .h6 {
 .hide {
     display: none !important;
 }
+
+/*.dark-mode {
+    background-color: $gray-900;
+    color: $white;
+
+    .btn-switch {
+        filter: invert(1);
+    }
+}*/

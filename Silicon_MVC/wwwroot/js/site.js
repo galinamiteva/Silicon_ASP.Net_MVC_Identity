@@ -1,27 +1,6 @@
-﻿const switchMode = document.getElementById('switch-mode');
-const body = document.body;
+﻿
 
-const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-switchMode.checked = isDarkMode;
-
-if (isDarkMode) {
-    body.classList.add('dark-mode');
-} else {
-    body.classList.remove('dark-mode');
-}
-
-switchMode.addEventListener('change', toggleDarkMode);
-
-function toggleDarkMode() {
-    if (switchMode.checked) {
-        body.classList.add('dark-mode');
-        localStorage.setItem('darkMode', 'true');
-    } else {
-        body.classList.remove('dark-mode');
-        localStorage.setItem('darkMode', 'false');
-    }
-}
 
 
 //const toggleMenu = () => {
@@ -46,6 +25,20 @@ function toggleDarkMode() {
 //window.addEventListener('resize', checkScreenSize);
 //checkScreenSize();
 
+//const switchMode = document.getElementById('switch-mode');
+//const body = document.body;
+
+//const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+//switchMode.checked = isDarkMode;
+
+//if (isDarkMode) {
+//    body.classList.add('dark-mode');
+//} else {
+//    body.classList.remove('dark-mode');
+//}
+
+//switchMode.addEventListener('change', toggleDarkMode);
 document.addEventListener('DOMContentLoaded', function () {
     var menuButton = document.getElementById('menuToggle');
     var mobileMenu = document.getElementById('mobileMenu');
@@ -63,3 +56,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+
+
+const switchMode = document.getElementById('switch-mode');
+const body = document.body;
+
+const isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+switchMode.checked = isDarkMode;
+
+if (isDarkMode) {
+    body.classList.add('dark-mode');
+} else {
+    body.classList.remove('dark-mode');
+}
+
+switchMode.addEventListener('change', toggleDarkMode);
+
+function toggleDarkMode() {
+    if (switchMode.checked) {
+        body.classList.add('dark-mode');
+        localStorage.setItem('darkMode', 'true');
+    } else {
+        body.classList.remove('dark-mode');
+        localStorage.setItem('darkMode', 'false');
+    }
+}

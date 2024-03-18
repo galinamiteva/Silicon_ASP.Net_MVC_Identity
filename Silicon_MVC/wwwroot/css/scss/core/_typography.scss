@@ -6,12 +6,21 @@ $font-manrope: 'Manrope', sans-serif;
     font-weight: 400;
     color: $gray-700;
     font-family: $font-manrope;
+
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin standard-heading {
     @include standard-text();
     font-weight: 800;
     color: $gray-900;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin text-nav {
@@ -19,6 +28,10 @@ $font-manrope: 'Manrope', sans-serif;
     font-size: 16px;
     color: $gray-800;
     font-weight: 600 !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin text-xs {
@@ -29,16 +42,28 @@ $font-manrope: 'Manrope', sans-serif;
 @mixin text-s {
     @include standard-text;
     font-size: 14px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin text-m {
     @include standard-text;
     font-size: 16px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin text-lg {
     @include standard-text;
     font-size: 18px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin text-xl {
@@ -49,6 +74,10 @@ $font-manrope: 'Manrope', sans-serif;
 @mixin text-lead {
     @include standard-text;
     font-size: 24px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin d1 {
@@ -59,54 +88,98 @@ $font-manrope: 'Manrope', sans-serif;
 @mixin d2 {
     @include standard-heading;
     font-size: 72px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin d3 {
     @include standard-heading;
     font-size: 64px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin d4 {
     @include standard-heading;
     font-size: 56px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin d5 {
     @include standard-heading;
     font-size: 48px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin d6 {
     @include standard-heading;
     font-size: 42px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin h1 {
     @include standard-heading;
     font-size: 40px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin h2 {
     @include standard-heading;
     font-size: 32px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin h3 {
     @include standard-heading;
     font-size: 28px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin h4 {
     @include standard-heading;
     font-size: 24px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin h5 {
     @include standard-heading;
     font-size: 20px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }
 
 @mixin h6 {
     @include standard-heading;
     font-size: 16px !important;
+
+    @at-root #{'.dark-mode &'} {
+        color: $white;
+    }
 }

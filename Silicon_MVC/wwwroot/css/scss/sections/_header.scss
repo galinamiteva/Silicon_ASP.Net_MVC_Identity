@@ -1,6 +1,11 @@
 header {
     padding: 15px 0;
 
+    .dark-mode & {
+        background-color: $gray-900 !important;
+        color: $white;
+    }
+
     &.gray {
         background-color: $gray-100;
     }
@@ -94,7 +99,6 @@ header {
             .btn-gray {
                 margin-bottom: 15px;
                 margin-top: 15px;
-
                 /*a {
                     margin-bottom: 50px;
                 }*/
@@ -108,7 +112,7 @@ header {
     }
 
     #mobileMenu nav {
-        margin-top:50px;
+        margin-top: 50px;
         display: flex;
         flex-direction: column;
         gap: 20px;
