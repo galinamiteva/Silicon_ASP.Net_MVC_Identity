@@ -17,7 +17,11 @@
                 @foreach (var item in feature.FeaturesItems)
                 {
                     <div class="box">
-                        <img src="images/icons/@item.ImageUrl" alt="">
+
+                        <div class="box-img">
+                            <img src="images/icons/@item.ImageUrl" alt="">
+                        </div>
+                        
                         <h5>@item.Title</h5>
                         <p>@item.Text</p>
                     </div>

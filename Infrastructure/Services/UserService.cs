@@ -7,7 +7,7 @@ using Infrastructure.Repositories;
 
 namespace Infrastructure.Services;
 
-public class UserService(UserRepository repository, AddressManager addressService)
+public class UserService(UserRepository repository)
 {
     private readonly UserRepository _repository = repository;
 
@@ -42,7 +42,7 @@ public class UserService(UserRepository repository, AddressManager addressServic
             if (result.StatusCode == StatusCode.OK && result.ContentResult != null)
             {
                 var userEntity = (UserEntity)result.ContentResult;
-                if ((model.Password == userEntity.PasswordHash))
+                if ((model.Password == userEntity.PasswordHash)) 
                     return ResponseFactory.Ok();
             }
 

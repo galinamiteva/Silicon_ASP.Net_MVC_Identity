@@ -9,11 +9,11 @@
         public bool AccountExternal { get; set; }
 
         public BasicInfoFormViewModel? BasicInfoForm { get; set; }
-    
-        public string ProfileImageUrl { get; set; } = "profile-image.svg";
 
+        public string? ProfileImageUrl { get; set; } = "profile-image.svg";
 
-    
+        //public string? ProfileImageUrl { get; set; }
+
     }
-    
+
 }

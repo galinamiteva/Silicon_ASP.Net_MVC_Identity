@@ -13,10 +13,7 @@
             background-color: $white;
 
 
-            .dark-mode & {
-                background-color: $gray-900 !important;
-                color: $white;
-            }
+            
 
             @include lg {
                 grid-template-columns: 1fr 1fr 1fr 1fr;

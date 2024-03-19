@@ -23,6 +23,7 @@
             align-items: center;
             position: relative;
             z-index: 1;
+            margin-bottom: 20px;
 
 
             .iPhoneProinside {
@@ -39,7 +40,13 @@
         }
 
         .content-info {
+            h1 {
+                text-align: center !important;
 
+                @include lg {
+                    text-align: left !important;
+                }
+            }
 
             .appstore {
                 padding: 20px;

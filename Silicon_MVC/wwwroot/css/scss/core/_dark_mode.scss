@@ -1,8 +1,365 @@
 .dark-mode {
     background-color: $gray-900;
     color: $white;
-
-    .btn-switch {
+    /*.btn-switch {
         filter: invert(1);
+    }*/
+
+    .features, .download, .want, .contact {
+        background-color: #151822;
+    }
+
+    h1, h2, h3, h4, h5, h6, h7, h8, a, i {
+        color: $white !important;
+    }
+
+    p, label {
+        color: $gray-500;
+    }
+
+    .btn-gray {
+        background-color: #171b25;
+        color: $gray-400;
+
+        i {
+            color: $gray-400;
+        }
+    }
+
+    input, select, textarea {
+        background-color: #1a1d26;
+        border: 0.063rem solid #43464d;
+        color: $white;
+    }
+
+    .features {
+
+        .tools {
+            .box {
+                border: none !important;
+
+                &:hover h5:hover {
+                    background-color: $white;
+                    color: $gray-900 !important;
+                }
+
+                img {
+                    background-color: $blue !important;
+                }
+            }
+        }
+    }
+
+    .manage {
+        i {
+            color: $theme !important;
+        }
+
+        .fa-arrow-right {
+            color: $white !important;
+        }
+    }
+
+    .contact {
+        .container {
+            .info {
+                .email-us {
+                    .round {
+                        background-color: $gray-900 !important;
+
+                        i {
+                            color: $theme !important;
+                        }
+                    }
+
+                    .email-content {
+                        a {
+                            color: $theme !important;
+                        }
+                    }
+                }
+
+                .careers {
+                    .round {
+                        background-color: $gray-900 !important;
+
+                        i {
+                            color: $theme !important;
+                        }
+                    }
+
+                    .text {
+                        a {
+                            color: $theme !important;
+                        }
+                    }
+                }
+            }
+
+            .get-contact {
+                background-color: $gray-900 !important;
+
+                form {
+                    label {
+                        color: $white !important;
+                    }
+                }
+            }
+        }
+    }
+
+
+    .switch {
+        .light {
+            color: $gray-900 !important;
+        }
+    }
+
+    .download {
+        .content-info {
+            .icon {
+                a {
+                    img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+
+        .stars {
+            i {
+                color: $warning !important;
+            }
+        }
+    }
+
+
+    .want {
+
+        i {
+            color: #43464d;
+        }
+
+        .contentEmail {
+            .terms {
+                a {
+                    color: #6366F1 !important;
+                }
+            }
+        }
+        /*.column {
+            .input-group {
+                input {
+                    background-color: $gray-900;
+                    border: 0.05px solid $gray-600;
+                }
+            }
+        }*/
+    }
+
+
+
+    .integrate {
+        .features {
+            background-color: $gray-900 !important;
+            color: $white;
+
+            &:hover {
+                img {
+                    background-color: $white !important;
+                }
+            }
+        }
+    }
+
+
+    #courses {
+        .container {
+            .filters {
+                .search {
+                    select {
+                        border: 2px solid $gray-600;
+
+                        option {
+                            color: $gray-600;
+                        }
+                    }
+
+                    .input-container {
+                        input {
+                            border: 2px solid $gray-600;
+                        }
+                    }
+                }
+            }
+
+            nav {
+                .page-link {
+                    background-color: $gray-900 !important;
+                    border: none;
+                }
+            }
+
+            .get-started {
+                background-color: $gray-900 !important;
+
+                .image-box {
+                    img {
+                        filter: invert(1);
+                    }
+                }
+            }
+        }
+    }
+
+
+    .courses {
+
+        .course {
+            border: none !important;
+
+            .tag {
+                p {
+                    color: $white;
+                }
+            }
+
+            .save-icon {
+                i {
+                    color: $black !important;
+                }
+            }
+
+            .course-info {
+                .price-with-sale, .price {
+                    border-bottom: 3px solid $gray-600 !important;
+                }
+            }
+
+            .card-bottom {
+                p {
+                    i {
+                        color: $gray-600 !important;
+                    }
+                }
+            }
+        }
+    }
+
+    #account-details {
+        aside {
+            nav {
+                a {
+                    text-align: left;
+                    color: $gray-400 !important;
+
+                    i {
+                        color: $gray-400 !important;
+                    }
+                }
+            }
+
+            @include lg {
+                border-right: 0.063rem solid $gray-800;
+            }
+        }
+
+        .basicInfoForm {
+            form {
+                h5 {
+                    color: $theme !important;
+                }
+            }
+        }
+
+        .addressInfoForm {
+            form {
+                h5 {
+                    color: $theme !important;
+                }
+            }
+        }
+    }
+
+    #basicInfoForm {
+        border-bottom: 0.063rem solid $gray-800;
+    }
+
+    #form-email {
+        background-color: $gray-900 !important;
+    }
+
+
+    .get-started {
+        .container {
+            background-color: #151822;
+        }
+    }
+
+    .delete-account {
+        p {
+            color: $white !important;
+        }
+    }
+
+    header {
+        &.gray {
+            background-color: $gray-900 !important;
+        }
+
+
+        #btn-switch {
+            label {
+                color: $gray-500;
+            }
+        }
+
+        .toggleMenu {
+            background-color: $gray-900 !important;
+        }
+
+        #mobileMenu {
+            background-color: $gray-900 !important;
+        }
+    }
+
+    footer {
+        a {
+            background-color: #171b25;
+        }
+    }
+
+    #signin {
+        form {
+            p {
+                a {
+                    color: #6366F1 !important;
+                }
+            }
+
+
+            #form-forgot-password {
+                color: $theme !important;
+            }
+        }
+    }
+
+
+    #signup {
+        form {
+            p {
+                a {
+                    color: $theme !important;
+                }
+            }
+
+            #form-terms {
+                .checkbox-group {
+                    a {
+                        color: $theme !important;
+                    }
+                }
+            }
+        }
     }
 }

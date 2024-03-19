@@ -1,4 +1,4 @@
-﻿@using Silicon_MVC.ViewModels.Account
+﻿
 @model AccountDetailsViewModel
 
 @{
@@ -9,7 +9,7 @@
 <div class="container">
     <section id="account-details">
 
-        <aside>
+        <aside class="account-profile">
             <div class=" profile">
 
                 <img src="~/images/@Model.ProfileInfo.ProfileImageUrl" alt="@Model.ProfileInfo.FirstName @Model.ProfileInfo.LastName" />
@@ -30,7 +30,7 @@
        
 
         <div class="details">
-            <section class="basicInfoForm">
+            <section class="basicInfoForm" id="basicInfoForm">
 
                 @if (!string.IsNullOrEmpty(ViewData["ErrorMessage"]?.ToString()))
                 {
