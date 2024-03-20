@@ -186,20 +186,9 @@ h6, .h6 {
   display: none !important;
 }
 
-/*.dark-mode {
-    background-color: $gray-900;
-    color: $white;
-
-    .btn-switch {
-        filter: invert(1);
-    }
-}*/
 .dark-mode {
   background-color: #0B0F19;
   color: #FFFFFF;
-  /*.btn-switch {
-      filter: invert(1);
-  }*/
 }
 .dark-mode .features, .dark-mode .download, .dark-mode .want, .dark-mode .contact {
   background-color: #151822;
@@ -271,16 +260,6 @@ h6, .h6 {
 .dark-mode .download .stars i {
   color: #FFBA08 !important;
 }
-.dark-mode .want {
-  /*.column {
-      .input-group {
-          input {
-              background-color: $gray-900;
-              border: 0.05px solid $gray-600;
-          }
-      }
-  }*/
-}
 .dark-mode .want i {
   color: #43464d;
 }
@@ -329,7 +308,7 @@ h6, .h6 {
   color: #9397AD !important;
 }
 .dark-mode #account-details aside nav a {
-  text-align: left;
+  /*text-align: left;*/
   color: #D4D7E5 !important;
 }
 .dark-mode #account-details aside nav a i {
@@ -747,114 +726,107 @@ form span.field-validation-error::after {
 }
 
 header {
-  padding: 15px 0;
-  /* .dark-mode & {
-       background-color: $gray-900 !important;
-       color: $white;
-   }*/
+  padding: 1rem 0 1rem 1rem;
+  height: 60vh;
 }
 header.gray {
   background-color: #F3F6FF;
 }
+@media (min-width: 992px) {
+  header {
+    height: auto;
+  }
+}
 header .container {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr auto;
-  grid-template-areas: "logo mobile";
-  gap: 40px;
+  grid-template-columns: 1fr auto auto;
+  grid-template-areas: "logo switch mobile" "menu menu menu" "buttons buttons buttons";
 }
-@media (min-width: 992px) {
+@media (min-width: 992px) and (min-width: 1200px) {
   header .container {
     grid-template-columns: auto 1fr auto auto;
+    gap: 20px;
     grid-template-areas: "logo menu switch buttons";
   }
 }
 header .container #logo {
   grid-area: logo;
 }
-header .container #menu-links {
+header .container #menu {
   grid-area: menu;
-  display: none;
+  display: block;
+  margin-bottom: 15px;
+  margin-top: 50px;
 }
 @media (min-width: 992px) {
-  header .container #menu-links {
+  header .container #menu {
     display: block;
+    margin-bottom: 0;
+    margin-top: 0;
   }
 }
-header .container #menu-links nav {
-  display: flex;
-  gap: 15px;
+header .container #menu nav {
+  display: grid;
+  justify-content: center;
+  gap: 2rem;
+}
+@media (min-width: 1200px) {
+  header .container #menu nav {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 header .container .btn-switch {
   grid-area: switch;
-  display: none;
+  display: flex;
+  justify-content: center;
 }
-@media (min-width: 992px) {
+@media (min-width: 1400px) {
   header .container .btn-switch {
-    display: block;
+    display: flex;
   }
 }
 header .container .account-buttons {
   grid-area: buttons;
-  display: none;
-  gap: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 40px;
 }
 @media (min-width: 992px) {
   header .container .account-buttons {
-    display: flex;
+    margin-top: 0;
   }
 }
 header .container .profile-img {
-  width: 40px;
-  height: 40px;
+  width: 100px;
+  height: 100px;
   margin-left: 15px;
 }
 header .container .profile-img img {
   width: 100%;
   height: 100%;
 }
-header .container .toggleMenu {
+@media (min-width: 992px) {
+  header .container .profile-img {
+    width: 40px;
+    height: 40px;
+  }
+}
+header .container .btn-mobilemenu {
   grid-area: mobile;
   display: block;
-  font-size: 30px;
+  margin-left: 20px;
+  font-size: 27px;
   border: none;
   background-color: #FFFFFF;
 }
-@media (min-width: 992px) {
-  header .container .toggleMenu {
+@media (min-width: 1200px) {
+  header .container .btn-mobilemenu {
     display: none;
   }
-}
-header #mobileMenu {
-  display: none;
-  flex-direction: column;
-  gap: 15px;
-  align-items: center;
-  background-color: #FFFFFF;
-  /*.dark-mode & {
-      background-color: $gray-900;
-  }*/
-}
-header #mobileMenu .account-buttons .btn-gray {
-  margin-bottom: 15px;
-  margin-top: 15px;
-  /*a {
-      margin-bottom: 50px;
-  }*/
-}
-header #mobileMenu .account-buttons .btn-theme {
-  margin-bottom: 50px;
-  margin-top: 50px;
-}
-header #mobileMenu nav {
-  margin-top: 50px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  align-items: center;
-}
-header #mobileMenu[aria-expanded=true] {
-  display: flex;
 }
 
 footer {
@@ -2136,6 +2108,7 @@ footer .container .social-media {
 #account-details aside nav a {
   display: block;
   margin-top: 10px;
+  text-align: left;
 }
 #account-details aside nav a i {
   color: #565973;

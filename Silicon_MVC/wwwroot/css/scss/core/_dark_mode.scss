@@ -1,9 +1,7 @@
 .dark-mode {
     background-color: $gray-900;
     color: $white;
-    /*.btn-switch {
-        filter: invert(1);
-    }*/
+    
 
     .features, .download, .want, .contact {
         background-color: #151822;
@@ -147,14 +145,7 @@
                 }
             }
         }
-        /*.column {
-            .input-group {
-                input {
-                    background-color: $gray-900;
-                    border: 0.05px solid $gray-600;
-                }
-            }
-        }*/
+       
     }
 
 
@@ -250,7 +241,7 @@
         aside {
             nav {
                 a {
-                    text-align: left;
+                    /*text-align: left;*/
                     color: $gray-400 !important;
 
                     i {

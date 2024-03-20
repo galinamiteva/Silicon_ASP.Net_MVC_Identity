@@ -1,126 +1,110 @@
 header {
-    
-    padding: 15px 0;
-
-   /* .dark-mode & {
-        background-color: $gray-900 !important;
-        color: $white;
-    }*/
+    padding: 1rem 0 1rem 1rem;
+    height: 60vh;
 
     &.gray {
         background-color: $gray-100;
     }
 
+    @include lg {
+        height: auto;
+    }
+
+
     .container {
         display: grid;
         align-items: center;
-        grid-template-columns: 1fr auto;
-        grid-template-areas: "logo mobile";
-        gap: 40px;
+        grid-template-columns: 1fr auto auto;
+        grid-template-areas: "logo switch mobile" "menu menu menu" "buttons buttons buttons";
+
 
         @include lg {
-            grid-template-columns: auto 1fr auto auto;
-            grid-template-areas: "logo menu switch buttons";
+            @include xl {
+                grid-template-columns: auto 1fr auto auto;
+                gap: 20px;
+                grid-template-areas: "logo menu switch buttons"
+            }
         }
 
         #logo {
             grid-area: logo;
         }
 
-        #menu-links {
+        #menu {
             grid-area: menu;
-            display: none;
+            display: block;
+            margin-bottom: 15px;
+            margin-top: 50px;
+
 
             @include lg {
                 display: block;
+                margin-bottom: 0;
+                margin-top: 0;
             }
 
             nav {
-                display: flex;
-                gap: 15px;
+                display: grid;
+                justify-content: center;
+                gap: 2rem;
+
+                @include xl {
+                    display: flex;
+                    justify-content: flex-start;
+                }
             }
         }
 
         .btn-switch {
             grid-area: switch;
-            display: none;
+            display: flex;
+            justify-content: center;
 
-            @include lg {
-                display: block;
+            @include xxl {
+                display: flex;
             }
         }
 
         .account-buttons {
             grid-area: buttons;
-            display: none;
-            gap: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 40px;
 
             @include lg {
-                display: flex;
+                margin-top: 0;
             }
         }
 
         .profile-img {
-            width: 40px;
-            height: 40px;
+            width: 100px;
+            height: 100px;
             margin-left: 15px;
 
             img {
                 width: 100%;
                 height: 100%;
             }
+
+            @include lg {
+                width: 40px;
+                height: 40px;
+            }
         }
 
-        .toggleMenu {
+        .btn-mobilemenu {
             grid-area: mobile;
             display: block;
-            font-size: 30px;
+            margin-left: 20px;
+            font-size: 27px;
             border: none;
             background-color: $white;
 
-            @include lg {
+            @include xl {
                 display: none;
             }
         }
-    }
-
-    #mobileMenu {
-        display: none;
-        flex-direction: column;
-        gap: 15px;
-        align-items: center;
-        background-color: $white;
-
-        /*.dark-mode & {
-            background-color: $gray-900;
-        }*/
-
-
-        .account-buttons {
-            .btn-gray {
-                margin-bottom: 15px;
-                margin-top: 15px;
-                /*a {
-                    margin-bottom: 50px;
-                }*/
-            }
-
-            .btn-theme {
-                margin-bottom: 50px;
-                margin-top: 50px;
-            }
-        }
-    }
-
-    #mobileMenu nav {
-        margin-top: 50px;
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        align-items: center;
-    }
-
-    #mobileMenu[aria-expanded="true"] {
-        display: flex;
     }
 }

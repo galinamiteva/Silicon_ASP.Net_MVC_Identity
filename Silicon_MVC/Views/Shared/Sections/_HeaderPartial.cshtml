@@ -10,8 +10,9 @@
         
 
         <a class="logo" asp-controller="Default" asp-action="Home"><img src="~/images/Silicon-Logotype -Light-Mode.svg" alt="Silicon"></a>
+       
 
-        <div id="menu-links">
+        <div id="menu" class="hide menu-nav">
             <nav>
                 <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
                 
@@ -38,7 +39,7 @@
                 }
 
 
-                <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
+                <a class="menu-link" asp-controller="Contact" asp-action="Index" asp-fragment="contactus">Contact</a>
 
             </nav>
 
@@ -56,82 +57,38 @@
         </div>
 
 
-        <div class="account-buttons">
-            @if (_signInManager.IsSignedIn(User))
-            {
-                <a class="btn-gray" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-right-from-bracket"></i><span>Sign Out</span></a>
-                    <div class="profile-img">
-                        <a asp-controller="Account" asp-action="Details">
-                            <img src="~/images/profile-image.svg" alt="Profile image">
-                        </a>
-                    </div>
-
-             
-            }
-            else
-            {
-                <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a>
-                <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
-            }
-
-        </div>
-
-        <div class="toggleMenu">
-            <button class="btn" id="menuToggle"><i class="fa-solid fa-bars-staggered"></i></button>
-
-            
-        </div>
-
-    </div>
-
-    <div id="mobileMenu" class="wrapper" aria-expanded="false"/>
-
-        <div class="account-buttons">
+        <div class="account-buttons" id="account-buttons">
             @if (_signInManager.IsSignedIn(User))
             {
                 
-                 <a class="btn-theme" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-right-from-bracket"></i><span>Sign Out</span></a>
-                    <div class="profile-img">
-                        <a asp-controller="Account" asp-action="Details">
-                        <img src="~/images/profile-image.svg" alt="Profile image">
-                        </a>
-                    </div>
-            
-                    
 
+                <a class="btn-theme" asp-controller="Auth" asp-action="SignOut"><i class="fa-solid fa-right-from-bracket"></i><span>Sign Out</span></a>
+                <div class="profile-img">
+                    <a asp-controller="Account" asp-action="Details" asp-fragment="account-details">
+                        <img src="~/images/profile-image.svg" alt="Profile image">
+                    </a>
+                </div>
             }
             else
             {
-            <a class="btn-gray" asp-controller="Auth" asp-action="SignIn"><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a>
-            <a class="btn-theme" asp-controller="Auth" asp-action="SignUp"><i class="fa-regular fa-user"></i><span>Sign up</span></a>
+                <a class="btn-gray" asp-controller="Auth" asp-action="SignIn" asp-fragment="signin" ><i class="fa-solid fa-right-to-bracket"></i><span>Sign in</span></a>
+                <a class="btn-theme" asp-controller="Auth" asp-action="SignUp" asp-fragment="signup" ><i class="fa-regular fa-user"></i><span>Sign up</span></a>
             }
 
-            <div class="menu">
-                <nav>
-                    <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="overview">Overview</a>
-
-                    @if (_signInManager.IsSignedIn(User))
-                    {
-                        <a class="menu-link" asp-controller="Courses" asp-action="Index">Courses</a>
-                        <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                            @if (User.IsInRole("SuperAdmin"))
-                            {
-                                <a class="menu-link" asp-controller="Admin" asp-action="Index">Admin Portal</a>
-
-                            }
-                    }
-                    else
-                    {
-                        <a class="menu-link" asp-controller="Home" asp-action="Index" asp-fragment="features">Features</a>
-                    }
-
-
-
-                    
-                    <a class="menu-link" asp-controller="Contact" asp-action="Index">Contact</a>
-                </nav>
-            </div>
         </div>
+
+        
+
+        
+        <button onclick="toggleMenu()" class="btn-mobilemenu" id="mobileMenu">
+
+            <i class="fa-solid fa-bars-staggered"></i>
+        </button>
+
     </div>
+
+    
+    
+    
     
 </header>
