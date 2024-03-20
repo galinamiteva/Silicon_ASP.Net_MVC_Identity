@@ -84,11 +84,16 @@ checkScreenSize();
 
 
 const switchMode = document.getElementById('switch-mode');
+const imgElem = document.getElementById('logo');
 const body = document.body;
+var imageUrlLight = '/images/Silicon-Logotype -Light-Mode.svg';
+var imageUrlDark = '/images/silicone-logo-dark_theme.svg';
+
 
 const isDarkMode = localStorage.getItem('darkMode') === 'true';
 
 switchMode.checked = isDarkMode;
+
 
 if (isDarkMode) {
     body.classList.add('dark-mode');
@@ -102,8 +107,16 @@ function toggleDarkMode() {
     if (switchMode.checked) {
         body.classList.add('dark-mode');
         localStorage.setItem('darkMode', 'true');
+        imgElem.setAttribute("src", imageUrlDark);
     } else {
         body.classList.remove('dark-mode');
         localStorage.setItem('darkMode', 'false');
+        imgElem.setAttribute("src", imageUrlLight);
     }
+}
+
+if (switchMode.checked) {
+    imgElem.setAttribute("src", imageUrlDark);
+} else {
+    imgElem.setAttribute("src", imageUrlLight);
 }
